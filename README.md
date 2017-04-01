@@ -7,7 +7,7 @@ This is not a Promise library. This is a collection of functions to help make ca
 
 ### Promisify
 
-`promisify` converts a node-style callback Function into a Promise. See `callbackify` if you need the reverse.
+`promisify` converts a node-style callback Function into a Function that returns a Promise. See `callbackify` if you need the reverse.
 
 **Example**
 
