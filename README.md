@@ -11,7 +11,7 @@ This is not a Promise library. This is a collection of functions to help make ca
 
 **Example**
 
-```
+```js
 function myCallback(x, y, callback) {
     setTimeout(function() {
         callback(null, x + y)
@@ -34,7 +34,7 @@ This is the opposite of `promisify`. `callbackify` will convert a Function that 
 
 **Example**
 
-```
+```js
 const myPromise = (x, y) => Promise.resolve(x + y)
 
 const myCallback = callbackify(myPromise)
