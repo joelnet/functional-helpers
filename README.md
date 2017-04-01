@@ -1,0 +1,2 @@
+# functional-js
+Functional helpers
