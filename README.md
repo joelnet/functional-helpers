@@ -1,6 +1,14 @@
 # functional-js
 Functional JavaScript Helpers
 
+# Installation
+
+`npm install --save git+https://github.com/joelnet/functional-js.git`
+
+Or if you want a specific version
+
+`npm install --save git+https://github.com/joelnet/functional-js.git#1.0.1`
+
 ## Promises
 
 This is not a Promise library. This is a collection of functions to help make callback and promise life a little easier.
