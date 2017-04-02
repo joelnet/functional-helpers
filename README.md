@@ -22,14 +22,17 @@ This is not a Promise library. This is a collection of functions to help make ca
 ```js
 import promisify from'functional-js/promises/promisify'
 
+// typical node-style callback
 function myCallback(x, y, callback) {
     setTimeout(function() {
         callback(null, x + y)
     }, 0)
 }
 
+// convert node-style callback into a promise returning function.
 const myPromise = promisify(myCallback)
 
+// now we can call it like this
 myPromise(2, 3)
     .then(data => {
         console.log(data)
@@ -40,7 +43,9 @@ myPromise(2, 3)
 
 ### PromisifyAll
 
-`promisifyAll` converts all functions in an object into Functions that return a Promise. All Functions are expected be node-style callback Functions.
+`promisifyAll` takes an object with node-style callbacks and returns object with promise returning functions.
+
+All functions in the source object are expected be node-style callback Functions.
 
 **Example**
 
@@ -48,9 +53,10 @@ myPromise(2, 3)
 import callbackify from 'functional-js/promises/promisifyAll'
 import fs          from 'fs'
 
-promisifyAll(fs)
+// turn every callback function into a promise function.
+const pfs = promisifyAll(fs)
 
-fs.readFileAsync('/etc/passwd')
+pfs.readFile('/etc/passwd')
     .then(file => console.log(file))
     .catch(err => console.log(err))
 ```

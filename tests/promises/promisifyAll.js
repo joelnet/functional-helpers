@@ -7,69 +7,57 @@ const getLib = () => {
     var obj = function() {
         this.myString = 'expected'
         this.myCallback = callback => callback(null, this.myString)
-        this.myAsync = () => Promise.resolve()
     }
 
     return new obj()
 }
 
-
 test('promises/promisifyAll creates promisified callbacks', t => {
     const myLib = getLib()
+    const promisifiedLib = promisifyAll(myLib)
 
-    promisifyAll(myLib)
-
-    t.equal(typeof myLib.myCallbackAsync, 'function', 'myLib.myCallbackAsync should be function')
+    t.equal(typeof promisifiedLib.myCallback, 'function', 'promisifiedLib.myCallback should be function')
     t.end()
 })
 
-test('promises/promisifyAll does not promisify non-Functions', t => {
+test('promises/promisifyAll does not copy non-Functions', t => {
     const myLib = getLib()
+    const promisifiedLib = promisifyAll(myLib)
 
-    promisifyAll(myLib)
-
-    t.equal(typeof myLib.myString, 'string', 'myLib.myString should be string')
+    t.equal(typeof promisifiedLib.myString, 'undefined', 'promisifiedLib.myString should be undefined')
     t.end()
 })
 
-test('promises/promisifyAll does not promisify functions that end with Async', t => {
+test('promises/promisifyAll function returns a Promise', t => {
     const myLib = getLib()
+    const promisifiedLib = promisifyAll(myLib)
 
-    promisifyAll(myLib)
-
-    t.false('myAsyncAsync' in myLib, 'myAsyncAsync should not exist')
-    t.end()
-})
-
-test('promises/promisifyAll does not modify functions that end with Async', t => {
-    const myLib = getLib()
-    const expected = myLib.myAsync
-
-    promisifyAll(myLib)
-
-    t.equal(myLib.myAsync, expected)
-    t.end()
-})
-
-test('promises/promisifyAll Async function returns a Promise', t => {
-    const myLib = getLib()
-
-    promisifyAll(myLib)
-
-    myLib.myCallbackAsync()
+    promisifiedLib.myCallback()
         .then(data => {
-            t.equal(data, 'expected', 'data should be expected')
+            t.equal(data, myLib.myString, 'data should be expected')
+            t.end()
+        })
+})
+
+test('promises/promisifyAll function does not change the this context', t => {
+    const myLib = getLib()
+    const promisifiedLib = promisifyAll(myLib)
+
+    promisifiedLib.myCallback()
+        .then(data => {
+            t.equal(data, myLib.myString, 'data should be expected')
             t.end()
         })
 })
 
 test('promises/promisifyAll works with fs', t => {
-    promisifyAll(fs)
+    const pfs = promisifyAll(fs)
+    const file = __dirname + '/promisifyAll.js'
 
-    fs.readFile(__dirname + '/promisifyAll.js', 'utf8', (err, data) => {
-        fs.readFileAsync(__dirname + '/promisifyAll.js', 'utf8')
-            .then(data2 => {
-                t.equal(data2, data)
+    fs.readFile(file, 'utf8', (err, data) => {
+        pfs.readFile(file, 'utf8')
+            .then(pdata => {
+                t.equal(pdata, data)
                 t.equal(err, null, 'err should be null')
                 t.equal(typeof data, 'string')
                 t.end()
