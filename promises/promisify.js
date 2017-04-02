@@ -5,7 +5,7 @@ module.exports = func => {
         return new Promise((resolve, reject) => {
             const callback = (err, data) => err ? reject(err) : resolve(data)
 
-            resolve(func.apply(null, args.concat([callback])))
+            func.apply(this, args.concat([callback]))
         })
     }
 }

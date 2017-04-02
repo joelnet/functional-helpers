@@ -1,4 +1,5 @@
 const test = require('tape')
+const fs = require('fs')
 
 const promisify = require('../../promises/promisify')
 
@@ -28,5 +29,17 @@ test('promises/promisify reject returns err', t => {
             t.equal(err, 5, 'err should be 5')
             t.equal(data, undefined, 'data should be undefined')
             t.end()
+        })
+})
+
+test('promises/promisify works with fs', t => {
+    fs.readFile(__dirname + '/promisifyAll.js', 'utf8', (err, data) => {
+        promisify(fs.readFile)(__dirname + '/promisifyAll.js', 'utf8')
+            .then(data2 => {
+                t.equal(data2, data)
+                t.equal(err, null, 'err should be null')
+                t.equal(typeof data, 'string')
+                t.end()
+            })
         })
 })
