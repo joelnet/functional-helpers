@@ -38,6 +38,23 @@ myPromise(2, 3)
     
 ```
 
+### PromisifyAll
+
+`promisifyAll` converts all functions in an object into Functions that return a Promise. All Functions are expected be node-style callback Functions.
+
+**Example**
+
+```js
+import callbackify from 'functional-js/promises/promisifyAll'
+import fs          from 'fs'
+
+promisifyAll(fs)
+
+fs.readFileAsync('/etc/passwd')
+    .then(file => console.log(file))
+    .catch(err => console.log(err))
+```
+
 ### Callbackify
 
 This is the opposite of `promisify`. `callbackify` will convert a Function that returns a Promise into a node-style callback Function.
