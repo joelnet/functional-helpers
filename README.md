@@ -1,13 +1,15 @@
 # functional-js
 Functional JavaScript Helpers
 
+![travis-ci build image](https://travis-ci.org/joelnet/functional-js.svg?branch=master)
+
 # Installation
 
 `npm install --save git+https://github.com/joelnet/functional-js.git`
 
 Or if you want a specific version
 
-`npm install --save git+https://github.com/joelnet/functional-js.git#1.0.1`
+`npm install --save git+https://github.com/joelnet/functional-js.git#1.1.0`
 
 ## Promises
 
