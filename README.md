@@ -70,7 +70,7 @@ This is the opposite of `promisify`. `callbackify` will convert a Function that 
 **Example**
 
 ```js
-import callbackify from'functional-js/promises/callbackify'
+import callbackify from 'functional-js/promises/callbackify'
 
 const myPromise = (x, y) => Promise.resolve(x + y)
 
