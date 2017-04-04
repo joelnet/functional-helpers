@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/joelnet/functional-js#readme",
   "devDependencies": {
+    "tape": "^4.6.3",
     "tap-spec": "^4.1.1"
   }
 }
