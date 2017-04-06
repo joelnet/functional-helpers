@@ -1,7 +1,5 @@
-# functional-js
+# functional-js ![travis-ci build image](https://travis-ci.org/joelnet/functional-js.svg?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/joelnet/functional-js/master/LICENSE)
 Functional JavaScript Helpers
-
-![travis-ci build image](https://travis-ci.org/joelnet/functional-js.svg?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/joelnet/functional-js/master/LICENSE)
 
 # Installation
 
@@ -52,7 +50,7 @@ All functions in the source object are expected be node-style callback Functions
 **Example**
 
 ```js
-import callbackify from 'functional-js/promises/promisifyAll'
+import promisifyAll from 'functional-js/promises/promisifyAll'
 import fs          from 'fs'
 
 // turn every callback function into a promise function.
