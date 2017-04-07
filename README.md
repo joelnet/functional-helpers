@@ -20,7 +20,7 @@ This is not a Promise library. This is a collection of functions to help make ca
 **Example**
 
 ```js
-import promisify from'functional-js/promises/promisify'
+import promisify from 'functional-js/promises/promisify'
 
 // typical node-style callback
 function myCallback(x, y, callback) {
