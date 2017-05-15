@@ -1,4 +1,4 @@
-# functional-js ![travis-ci build image](https://travis-ci.org/joelnet/functional-js.svg?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/joelnet/functional-js/master/LICENSE)
+# functional-helpers ![travis-ci build image](https://travis-ci.org/joelnet/functional-js.svg?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/joelnet/functional-js/master/LICENSE)
 Functional JavaScript Helpers
 
 # Installation
@@ -20,7 +20,7 @@ This is not a Promise library. This is a collection of functions to help make ca
 **Example**
 
 ```js
-import promisify from 'functional-js/promisify'
+import promisify from 'functional-helpers/promisify'
 
 // typical node-style callback
 function myCallback(x, y, callback) {
@@ -50,7 +50,7 @@ All functions in the source object are expected be node-style callback Functions
 **Example**
 
 ```js
-import promisifyAll from 'functional-js/promisifyAll'
+import promisifyAll from 'functional-helpers/promisifyAll'
 import fs from 'fs'
 
 // turn every callback function into a promise function.
@@ -68,7 +68,7 @@ This is the opposite of `promisify`. `callbackify` will convert a Function that 
 **Example**
 
 ```js
-import callbackify from 'functional-js/callbackify'
+import callbackify from 'functional-helpers/callbackify'
 
 const myPromise = (x, y) => Promise.resolve(x + y)
 
