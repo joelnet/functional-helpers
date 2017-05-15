@@ -51,7 +51,7 @@ All functions in the source object are expected be node-style callback Functions
 
 ```js
 import promisifyAll from 'functional-js/promisifyAll'
-import fs          from 'fs'
+import fs from 'fs'
 
 // turn every callback function into a promise function.
 const pfs = promisifyAll(fs)
