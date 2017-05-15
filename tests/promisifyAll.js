@@ -1,7 +1,7 @@
 const test = require('tape')
 const fs = require('fs')
 
-const promisifyAll = require('../../promises/promisifyAll')
+const promisifyAll = require('../promisifyAll')
 
 const getLib = () => {
     var obj = function() {

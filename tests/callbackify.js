@@ -1,6 +1,6 @@
 const test = require('tape')
 
-const callbackify = require('../../promises/callbackify')
+const callbackify = require('../callbackify')
 
 test('promises/callbackify with no arguments returns success', t => {
     const expected = {}

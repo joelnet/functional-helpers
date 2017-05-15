@@ -1,8 +1,5 @@
 const promisify = require('./promisify')
 
-const endsWith = (str, suffix) => 
-    str.indexOf(suffix, str.length - suffix.length) !== -1;
-
 const shouldPromisify = (obj, key) =>
     obj[key] instanceof Function
         && obj[key + 'Async'] === undefined

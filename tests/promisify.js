@@ -1,7 +1,7 @@
 const test = require('tape')
 const fs = require('fs')
 
-const promisify = require('../../promises/promisify')
+const promisify = require('../promisify')
 
 test('promises/promisify with no arguments returns success', t => {
     const expected = {}
