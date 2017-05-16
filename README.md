@@ -7,7 +7,7 @@ Functional JavaScript Helpers
 
 Or if you want a specific version
 
-`npm install --save git+https://github.com/joelnet/functional-helpers.git#1.1.0`
+`npm install --save git+https://github.com/joelnet/functional-helpers.git#1.3.0`
 
 ## Promises
 
