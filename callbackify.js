@@ -2,13 +2,11 @@ const success = f => x => f(null, x)
 const fail = f => x => f(x)
 
 module.exports = function callbackify(promise) {
-    const self = this
+    return (...args) => {
+        const onlyArgs = args.slice(0, arguments.length - 1)
+        const callback = args[args.length - 1]
 
-    return function callbackify_() {
-        const args = Array.prototype.slice.call(arguments, 0, arguments.length - 1)
-        const callback = arguments[arguments.length - 1]
-
-        promise.apply(self, args)
+        promise.apply(this, args)
             .then(success(callback))
             .catch(fail(callback))
     }
