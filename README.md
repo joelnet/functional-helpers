@@ -1,4 +1,4 @@
-# functional-helpers ![travis-ci build image](https://travis-ci.org/joelnet/functional-js.svg?branch=master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/joelnet/functional-js/master/LICENSE)
+# functional-helpers [![travis-ci build image](https://travis-ci.org/joelnet/functional-helpers.svg?branch=master)](https://travis-ci.org/joelnet/functional-helpers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/joelnet/functional-js/master/LICENSE)
 Functional JavaScript Helpers
 
 # Installation
