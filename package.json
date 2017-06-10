@@ -1,5 +1,5 @@
 {
-  "name": "functional-js",
+  "name": "functional-helpers",
   "version": "1.3.0",
   "description": "Functional JavaScript Helpers",
   "main": "index.js",
@@ -17,9 +17,9 @@
   "author": "Joel Thoms",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joelnet/functional-js/issues"
+    "url": "https://github.com/joelnet/functional-helpers/issues"
   },
-  "homepage": "https://github.com/joelnet/functional-js#readme",
+  "homepage": "https://github.com/joelnet/functional-helpers#readme",
   "devDependencies": {
     "tape": "^4.6.3",
     "tap-spec": "^4.1.1"
