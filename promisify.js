@@ -9,9 +9,17 @@
  * import promisify from 'functional-helpers/promisify'
  * 
  * const readFile = promisify(fs.readFile)
- * readFile('file.txt')
+ * 
+ * // works as a promise
+ * readFile('file.txt', 'utf8')
  *   .then(file => console.log(file))
  *   .catch(err => console.log('error reading file', err))
+ * 
+ * // also works as a callback
+ * readFile('file.txt', 'utf8', (err, file) => {
+ *   if (err) return console.log('error reading file', err))
+ *   console.log(file)
+ * })
  */
 const promisify = (func, context) => (...args) =>
   new Promise((resolve, reject) => {

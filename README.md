@@ -68,9 +68,17 @@ Converts a node-style callback function into a promise-returning function.
 import promisify from 'functional-helpers/promisify'
 
 const readFile = promisify(fs.readFile)
-readFile('file.txt')
+
+// works as a promise
+readFile('file.txt', 'utf8')
   .then(file => console.log(file))
   .catch(err => console.log('error reading file', err))
+
+// also works as a callback
+readFile('file.txt', 'utf8', (err, file) => {
+  if (err) return console.log('error reading file', err))
+  console.log(file)
+})
 ```
 <a name="promisifyAll"></a>
 
@@ -92,9 +100,16 @@ import fs from 'fs'
 
 const fsp = promisifyAll(fs)
 
-fsp.readFile('file.txt')
+// works as a promise
+fsp.readFile('file.txt', 'utf8')
   .then(file => console.log(file))
   .catch(err => console.log('error reading file', err))
+
+// also works as a callback
+fsp.readFile('file.txt', 'utf8', (err, file) => {
+  if (err) return console.log('error reading file', err)
+  console.log(file)
+})
 ```
 
 # License
