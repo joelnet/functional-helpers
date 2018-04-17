@@ -1,8 +1,7 @@
 const promisify = require('./promisify')
 
 const shouldPromisify = (obj, key) =>
-    obj[key] instanceof Function
-    && obj[key + 'Async'] === undefined
+    typeof obj[key] === 'function'
 
 const keys = obj => {
     const value = []
@@ -16,7 +15,7 @@ module.exports = obj =>
     keys(obj)
         .reduce((acc, key) => {
             if (shouldPromisify(obj, key)) {
-                acc[key] = promisify(obj[key], obj)
+                Object.assign(acc, { [key]: promisify(obj[key], obj) })
             }
 
             return acc
