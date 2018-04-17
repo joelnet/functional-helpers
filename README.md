@@ -7,76 +7,96 @@ Functional JavaScript Helpers
 
 Or if you want a specific version
 
-`npm install --save joelnet/functional-helpers#1.3.0`
+`npm install --save joelnet/functional-helpers#1.4.0`
 
-## Promises
+# API Reference
 
-This is not a Promise library. This is a collection of functions to help make callback and promise life a little easier.
+## Functions
 
-### Promisify
+<dl>
+<dt><a href="#callbackify">callbackify(promise, [context])</a> ⇒ <code>function</code></dt>
+<dd><p>Converts a promise-returning function into a node-sytle callback function.</p>
+</dd>
+<dt><a href="#promisify">promisify(func, [context])</a> ⇒ <code>function</code></dt>
+<dd><p>Converts a node-style callback function into a promise-returning function.</p>
+</dd>
+<dt><a href="#promisifyAll">promisifyAll(obj)</a> ⇒ <code>Object</code></dt>
+<dd><p>Converts all functions in an object from node-style callbacks to promise-returning functions.
+Does not modify the original function and instead returns a new object.</p>
+</dd>
+</dl>
 
-`promisify` converts a node-style callback Function into a Function that returns a Promise. See `callbackify` if you need the reverse.
+<a name="callbackify"></a>
 
-**Example**
+## callbackify(promise, [context]) ⇒ <code>function</code>
+Converts a promise-returning function into a node-sytle callback function.
 
+**Kind**: global function  
+**Returns**: <code>function</code> - - A node-style callback function.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| promise | <code>function</code> | A promise-returning function. |
+| [context] | <code>Object</code> | The context to assign to `this`. |
+
+**Example**  
+```js
+import callbackify from 'functional-helpers/callbackify'
+
+const callback = callbackify((x, y) => Promise.resolve(x + y))
+
+callback(2, 3, (err, data) => {
+  if (err) return console.log('Unknown error', err)
+  console.log('result = ', data)
+})
+```
+<a name="promisify"></a>
+
+## promisify(func, [context]) ⇒ <code>function</code>
+Converts a node-style callback function into a promise-returning function.
+
+**Kind**: global function  
+**Returns**: <code>function</code> - - A function that will return a promise.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| func | <code>function</code> | Node style callback function to convert. |
+| [context] | <code>Object</code> | The context to assign to `this`. |
+
+**Example**  
 ```js
 import promisify from 'functional-helpers/promisify'
 
-// typical node-style callback
-function myCallback(x, y, callback) {
-    setTimeout(function() {
-        callback(null, x + y)
-    }, 0)
-}
-
-// convert node-style callback into a promise returning function.
-const myPromise = promisify(myCallback)
-
-// now we can call it like this
-myPromise(2, 3)
-    .then(data => {
-        console.log(data)
-        // => 5
-    })
-    
+const readFile = promisify(fs.readFile)
+readFile('file.txt')
+  .then(file => console.log(file))
+  .catch(err => console.log('error reading file', err))
 ```
+<a name="promisifyAll"></a>
 
-### PromisifyAll
+## promisifyAll(obj) ⇒ <code>Object</code>
+Converts all functions in an object from node-style callbacks to promise-returning functions.
+Does not modify the original function and instead returns a new object.
 
-`promisifyAll` takes an object with node-style callbacks and returns object with promise returning functions.
+**Kind**: global function  
+**Returns**: <code>Object</code> - - Object with all functions promisified.  
 
-All functions in the source object are expected be node-style callback Functions.
+| Param | Type | Description |
+| --- | --- | --- |
+| obj | <code>Object</code> | Object to promisify. |
 
-**Example**
-
+**Example**  
 ```js
 import promisifyAll from 'functional-helpers/promisifyAll'
 import fs from 'fs'
 
-// turn every callback function into a promise function.
-const pfs = promisifyAll(fs)
+const fsp = promisifyAll(fs)
 
-pfs.readFile('/etc/passwd')
-    .then(file => console.log(file))
-    .catch(err => console.log(err))
+fsp.readFile('file.txt')
+  .then(file => console.log(file))
+  .catch(err => console.log('error reading file', err))
 ```
 
-### Callbackify
+# License
 
-This is the opposite of `promisify`. `callbackify` will convert a Function that returns a Promise into a node-style callback Function.
-
-**Example**
-
-```js
-import callbackify from 'functional-helpers/callbackify'
-
-const myPromise = (x, y) => Promise.resolve(x + y)
-
-const myCallback = callbackify(myPromise)
-
-myCallback(2, 3, (err, data) => {
-    console.log(data)
-    // => 5
-})
-
-```
+[MIT License](LICENSE)
