@@ -4,6 +4,7 @@
   "description": "Functional JavaScript Helpers",
   "scripts": {
     "clean": "rimraf coverage",
+    "lint": "eslint .",
     "test": "jest --coverage"
   },
   "repository": {
