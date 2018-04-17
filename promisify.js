@@ -4,7 +4,7 @@
  * @alias promisify
  * @param {Function} func - Node style callback function to convert.
  * @param {Object} [context] - The context to assign to `this`.
- * @returns {Function} - A function that will return a promise.
+ * @returns {Function} A function that will return a promise.
  * @example
  * import promisify from 'functional-helpers/promisify'
  * 

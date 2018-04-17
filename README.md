@@ -32,7 +32,7 @@ Does not modify the original function and instead returns a new object.</p>
 Converts a promise-returning function into a node-sytle callback function.
 
 **Kind**: global function  
-**Returns**: <code>function</code> - - A node-style callback function.  
+**Returns**: <code>function</code> - A node-style callback function.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -56,7 +56,7 @@ callback(2, 3, (err, data) => {
 Converts a node-style callback function into a promise-returning function.
 
 **Kind**: global function  
-**Returns**: <code>function</code> - - A function that will return a promise.  
+**Returns**: <code>function</code> - A function that will return a promise.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -79,7 +79,7 @@ Converts all functions in an object from node-style callbacks to promise-returni
 Does not modify the original function and instead returns a new object.
 
 **Kind**: global function  
-**Returns**: <code>Object</code> - - Object with all functions promisified.  
+**Returns**: <code>Object</code> - Object with all functions promisified.  
 
 | Param | Type | Description |
 | --- | --- | --- |

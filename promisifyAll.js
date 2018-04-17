@@ -9,7 +9,7 @@ const shouldPromisify = (obj, key) =>
  * 
  * @alias promisifyAll
  * @param {Object} obj - Object to promisify.
- * @returns {Object} - Object with all functions promisified.
+ * @returns {Object} Object with all functions promisified.
  * @example
  * import promisifyAll from 'functional-helpers/promisifyAll'
  * import fs from 'fs'

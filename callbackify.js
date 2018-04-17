@@ -7,7 +7,7 @@ const fail = f => x => f(x)
  * @alias callbackify
  * @param {Function} promise - A promise-returning function.
  * @param {Object} [context] - The context to assign to `this`.
- * @returns {Function} - A node-style callback function.
+ * @returns {Function} A node-style callback function.
  * @example
  * import callbackify from 'functional-helpers/callbackify'
  * 
