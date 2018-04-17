@@ -114,4 +114,4 @@ fsp.readFile('file.txt', 'utf8', (err, file) => {
 
 # License
 
-[MIT License](LICENSE)
+[Unlicense](LICENSE)
