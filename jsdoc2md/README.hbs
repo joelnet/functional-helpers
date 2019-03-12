@@ -1,5 +1,10 @@
-# functional-helpers [![travis-ci build image](https://travis-ci.org/joelnet/functional-helpers.svg?branch=master)](https://travis-ci.org/joelnet/functional-helpers) [![GitHub license](https://img.shields.io/badge/license-UNLICENSE-blue.svg)](https://raw.githubusercontent.com/joelnet/functional-js/master/LICENSE)
+# functional-helpers ![GitHub license](https://img.shields.io/badge/status-DEPRECATED-red.svg) [![travis-ci build image](https://travis-ci.org/joelnet/functional-helpers.svg?branch=master)](https://travis-ci.org/joelnet/functional-helpers) [![GitHub license](https://img.shields.io/badge/license-UNLICENSE-blue.svg)](https://raw.githubusercontent.com/joelnet/functional-js/master/LICENSE)
+
 Functional JavaScript Helpers
+
+# DEPRECATED
+
+This project has been deprecated and is no longer in development. All future work will be done on [MojiScript](https://mojiscript.js.org)
 
 # Installation
 
